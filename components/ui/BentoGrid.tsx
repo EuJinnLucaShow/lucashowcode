@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { BackgroundGradientAnimation } from "./BackgroundGradientAnimation";
 
 export const BentoGrid = ({
   className,
@@ -25,7 +26,6 @@ export const BentoGridItem = ({
   description,
   img,
   imgClassName,
-  titleClassName,
   spareImg,
   id,
 }: {
@@ -73,6 +73,11 @@ export const BentoGridItem = ({
             />
           )}
         </div>
+        {id === 6 && (
+          <BackgroundGradientAnimation>
+            <div className="absolute z-50 inset-0 flex items-center justify-center text-white font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl"></div>
+          </BackgroundGradientAnimation>
+        )}
       </div>
 
       <div className="group-hover/bento:translate-x-2 transition duration-200">
