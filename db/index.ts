@@ -11,7 +11,7 @@ export const gridItems = [
     id: 1,
     title: "I prioritize client collaboration, fostering open communication ",
     description: "",
-    className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
+    className: "lg:col-span-3 md:col-span-2 md:row-span-4 lg:min-h-[60vh]",
 
     titleClassName: "justify-end",
   },
