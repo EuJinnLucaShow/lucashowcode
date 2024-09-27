@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils";
-import { BackgroundGradientAnimation } from "./BackgroundGradientAnimation";
 
 export const BentoGrid = ({
   className,
@@ -24,19 +23,13 @@ export const BentoGridItem = ({
   className,
   title,
   description,
-  img,
-  imgClassName,
-  spareImg,
   id,
 }: {
   className?: string;
   id?: number;
   title?: string | React.ReactNode;
   description?: string | React.ReactNode;
-  img?: string;
-  imgClassName?: string;
   titleClassName?: string;
-  spareImg?: string;
 }) => {
   return (
     <div
@@ -51,33 +44,7 @@ export const BentoGridItem = ({
       }}
     >
       <div className={`${id === 6 && "flex justify-center h-full"}`}>
-        <div className="w-full h-full absolute">
-          {img && (
-            <img
-              src={img}
-              alt={img}
-              className={cn(imgClassName, "object-cover object-center ")}
-            />
-          )}
-        </div>
-        <div
-          className={`absolute right-0 -bottom-5 ${
-            id === 5 && "w-full opacity-80"
-          } `}
-        >
-          {spareImg && (
-            <img
-              src={spareImg}
-              alt={spareImg}
-              className="object-cover object-center w-full h-full"
-            />
-          )}
-        </div>
-        {id === 6 && (
-          <BackgroundGradientAnimation>
-            <div className="absolute z-50 inset-0 flex items-center justify-center text-white font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl"></div>
-          </BackgroundGradientAnimation>
-        )}
+        <div className="w-full h-full"></div>
       </div>
 
       <div className="group-hover/bento:translate-x-2 transition duration-200">
