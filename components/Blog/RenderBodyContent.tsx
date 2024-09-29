@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import config from "@/sanity/lib/config";
 import { Blog } from "@/types/blog";
 import { PortableText } from "@portabletext/react";

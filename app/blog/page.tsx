@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Spotlight } from "@/components/ui/Spotlight";
 import { getPosts } from "@/sanity/lib/utils";
 import BlogItem from "@/components/Blog";
