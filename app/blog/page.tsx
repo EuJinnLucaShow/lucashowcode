@@ -1,6 +1,10 @@
 import { Spotlight } from "@/components/ui/Spotlight";
+import { getPosts } from "@/sanity/lib/utils";
+import BlogItem from "@/components/Blog";
 
-export default function Blog() {
+export default async function Blog() {
+  const posts = await getPosts();
+
   return (
     <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">
       <div className="max-v-7xl w-full min-h-screen">
@@ -19,7 +23,13 @@ export default function Blog() {
               fill="blue"
             />
           </div>
-
+          <div className="py-5">
+            {posts?.length > 0 ? (
+              posts.map((post: any) => <BlogItem key={post._id} blog={post} />)
+            ) : (
+              <p>No posts found</p>
+            )}
+          </div>
           <div className="h-screen w-full dark:bg-black-100 bg-white  dark:bg-grid-white/[0.03] bg-grid-black/[0.2] flex items-center justify-center absolute top-0 left-0">
             <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
           </div>
