@@ -23,13 +23,13 @@ export default async function Blog() {
               fill="blue"
             />
           </div>
-          <div className=" py-5">
+          <ul className=" py-5">
             {posts?.length > 0 ? (
               posts.map((post: any) => <BlogItem key={post._id} blog={post} />)
             ) : (
               <p className="text-slate-200">No posts found</p>
             )}
-          </div>
+          </ul>
         </div>
       </div>
     </main>

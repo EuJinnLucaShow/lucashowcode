@@ -1,4 +1,5 @@
 import { groq } from "next-sanity";
+
 const postData = `{
   title,
   metadata,
