@@ -9,7 +9,6 @@ import { FaArrowLeft } from "react-icons/fa";
 
 export default async function Blog() {
   const posts = await getPosts();
-  console.log(posts[0]);
 
   return (
     <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">

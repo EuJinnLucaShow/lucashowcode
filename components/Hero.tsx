@@ -35,13 +35,11 @@ const Hero = () => {
             Hi! I&apos;m Yevhenii Lukashov, Full-Stack Developer.
           </p>
 
-          <a href="#about">
-            <MagicButton
-              title="Show my work"
-              icon={<FaLocationArrow />}
-              position="right"
-            />
-          </a>
+          <MagicButton
+            title="Show my work"
+            icon={<FaLocationArrow />}
+            position="right"
+          />
         </div>
       </div>
     </div>
