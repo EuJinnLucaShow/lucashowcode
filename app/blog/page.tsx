@@ -27,10 +27,10 @@ export default async function Blog() {
             />
           </div>
 
-          <div className="w-full flex items-center justify-center">
+          <div className="w-full flex items-center justify-center flex-wrap">
             {posts?.length > 0 ? (
               posts.map((post: any) => (
-                <div key={post._id}>
+                <div key={post._id} className="my-8">
                   <PinContainer blog={post}>
                     <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
                       <h3 className="max-w-xs !pb-2 !m-0 font-bold  text-base text-slate-100">
