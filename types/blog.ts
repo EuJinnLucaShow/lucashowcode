@@ -1,5 +1,12 @@
 import { PortableTextBlock } from "sanity";
 
+export type Image = {
+  asset: {
+    _ref: string;
+    _type: string;
+  };
+};
+
 export type Blog = {
   title: string;
   slug: {
@@ -7,7 +14,7 @@ export type Blog = {
   };
   metadata: string;
   body: PortableTextBlock[];
-  mainImage: any;
+  mainImage: Image;
   tags: string[];
   publishedAt: string;
 };
