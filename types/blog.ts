@@ -1,7 +1,6 @@
 import { PortableTextBlock } from "sanity";
 
 export type Blog = {
-  _id: number;
   title: string;
   slug: {
     current: string;

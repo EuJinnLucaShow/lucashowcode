@@ -3,6 +3,9 @@ import { Spotlight } from "@/components/ui/Spotlight";
 import { getPosts } from "@/sanity/lib/utils";
 import { PinContainer } from "@/components/Blog/";
 import { urlFor } from "@/sanity/lib/image";
+import Link from "next/link";
+import MagicButton from "@/components/ui/MagicButton";
+import { FaArrowLeft } from "react-icons/fa";
 
 export default async function Blog() {
   const posts = await getPosts();
@@ -10,8 +13,11 @@ export default async function Blog() {
 
   return (
     <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">
+      <Link href={"/"}>
+        <MagicButton title="Back" icon={<FaArrowLeft />} position="left" />
+      </Link>
       <div className="max-v-7xl w-full min-h-screen">
-        <div className="pb-20 pt-36 ">
+        <div>
           <div>
             <Spotlight
               className="-top-40 -left-10 md:-left-32 md:-top-20 h-screen"
@@ -30,7 +36,7 @@ export default async function Blog() {
           <div className="w-full flex items-center justify-center flex-wrap">
             {posts?.length > 0 ? (
               posts.map((post: any) => (
-                <div key={post._id} className="my-8">
+                <div key={post.publishedAt} className="my-8">
                   <PinContainer blog={post}>
                     <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
                       <h3 className="max-w-xs !pb-2 !m-0 font-bold  text-base text-slate-100">
