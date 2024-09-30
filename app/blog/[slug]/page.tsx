@@ -26,14 +26,15 @@ const SingleBlogPage = async ({ params }: { params: Params }) => {
             {new Date(post.publishedAt).toDateString()}
           </p>
           {post.mainImage?.asset?._ref ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              className="float-left m-0 w-1/3 mr-4 rounded-lg"
-              src={urlFor(post.mainImage?.asset?._ref).url()}
-              width={300}
-              height={300}
-              alt={post.mainImage.alt || ""}
-            />
+            <picture>
+              <img
+                className="float-left m-0 w-1/3 mr-4 rounded-lg"
+                src={urlFor(post.mainImage?.asset?._ref).url()}
+                width={300}
+                height={300}
+                alt={post.mainImage.alt || ""}
+              />
+            </picture>
           ) : null}
 
           <p>{post.metadata}</p>
