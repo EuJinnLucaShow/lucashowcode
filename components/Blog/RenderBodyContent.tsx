@@ -1,11 +1,16 @@
 import config from "@/sanity/lib/config";
 import { Blog } from "@/types/blog";
 import { PortableText } from "@portabletext/react";
-import { getImageDimensions } from "@sanity/asset-utils";
+import { getImageDimensions, SanityImageSource } from "@sanity/asset-utils";
 import urlBuilder from "@sanity/image-url";
 import Image from "next/image";
 
-const ImageComponent = ({ value, isInline }: any) => {
+type ImageComponentProps = {
+  value: SanityImageSource & { alt?: string };
+  isInline?: boolean;
+};
+
+const ImageComponent = ({ value, isInline }: ImageComponentProps) => {
   const { width, height } = getImageDimensions(value);
   return (
     <div className="my-10 overflow-hidden rounded-[15px]">
@@ -31,7 +36,7 @@ const components = {
 };
 
 const RenderBodyContent = ({ post }: { post: Blog }) => {
-  return <PortableText value={post?.body as any} components={components} />;
+  return <PortableText value={post?.body} components={components} />;
 };
 
 export default RenderBodyContent;
