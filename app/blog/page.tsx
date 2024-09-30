@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Spotlight } from "@/components/ui/Spotlight";
 import { getPosts } from "@/sanity/lib/utils";
 import { PinContainer } from "@/components/Blog/";
@@ -6,9 +5,10 @@ import { urlFor } from "@/sanity/lib/image";
 import Link from "next/link";
 import MagicButton from "@/components/ui/MagicButton";
 import { FaArrowLeft } from "react-icons/fa";
+import { Blog } from "@/types/blog";
 
-export default async function Blog() {
-  const posts = await getPosts();
+export default async function BlogPage() {
+  const posts: Blog[] = await getPosts();
 
   return (
     <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">
@@ -34,7 +34,7 @@ export default async function Blog() {
 
           <div className="w-full flex items-center justify-center flex-wrap">
             {posts?.length > 0 ? (
-              posts.map((post: any) => (
+              posts.map((post) => (
                 <div key={post.publishedAt} className="my-8">
                   <PinContainer blog={post}>
                     <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">

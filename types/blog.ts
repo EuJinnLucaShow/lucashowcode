@@ -1,6 +1,7 @@
 import { PortableTextBlock } from "sanity";
 
 export type Image = {
+  alt: string;
   asset: {
     _ref: string;
     _type: string;
