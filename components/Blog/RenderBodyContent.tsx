@@ -1,13 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import config from "@/sanity/lib/config";
 import { Blog } from "@/types/blog";
 import { PortableText } from "@portabletext/react";
 import { getImageDimensions } from "@sanity/asset-utils";
 import urlBuilder from "@sanity/image-url";
 import Image from "next/image";
-import React from "react";
 
-// lazy-loaded image component
 const ImageComponent = ({ value, isInline }: any) => {
   const { width, height } = getImageDimensions(value);
   return (
