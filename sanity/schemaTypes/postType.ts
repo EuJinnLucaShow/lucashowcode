@@ -19,6 +19,11 @@ export const postType = defineType({
       },
     }),
     defineField({
+      name: "metadata",
+      title: "Metadata",
+      type: "string",
+    }),
+    defineField({
       name: "mainImage",
       type: "image",
       options: {

@@ -42,7 +42,9 @@ export default async function BlogPage() {
                         {post.title}
                       </h3>
                       <div className="text-base !m-0 !p-0 font-normal">
-                        <span className="text-slate-500 ">...</span>
+                        <span className="text-slate-500 ">
+                          {post.metadata.slice(0, 70)}...
+                        </span>
                       </div>
                       {post.mainImage?.asset?._ref && (
                         <div
