@@ -32,10 +32,10 @@ export default async function BlogPage() {
             />
           </div>
 
-          <div className="w-full flex items-center justify-center flex-wrap">
+          <ul className="w-full flex items-center justify-center flex-wrap">
             {posts?.length > 0 ? (
               posts.map((post) => (
-                <div key={post.publishedAt} className="my-8">
+                <li key={post.publishedAt} className="my-8">
                   <PinContainer blog={post}>
                     <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
                       <h3 className="max-w-xs !pb-2 !m-0 font-bold  text-base text-slate-100">
@@ -49,23 +49,23 @@ export default async function BlogPage() {
                       {post.mainImage?.asset?._ref && (
                         <div
                           style={{
-                            backgroundImage: `url(${urlFor(post.mainImage)
-                              .width(400)
-                              .url()})`,
+                            backgroundImage: `url(${urlFor(
+                              post.mainImage
+                            ).url()})`,
                             backgroundSize: "cover",
                             backgroundPosition: "center",
                           }}
-                          className="flex flex-1 w-full rounded-lg mt-4 h-[200px]"
+                          className="flex flex-1 w-full rounded-lg mt-4"
                         />
                       )}
                     </div>
                   </PinContainer>
-                </div>
+                </li>
               ))
             ) : (
               <p className="text-slate-200">No posts found</p>
             )}
-          </div>
+          </ul>
         </div>
       </div>
     </main>
