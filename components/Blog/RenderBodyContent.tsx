@@ -18,7 +18,7 @@ const ImageComponent = ({ value, isInline }: ImageComponentProps) => {
         src={urlBuilder(config).image(value).fit("max").auto("format").url()}
         width={width}
         height={height}
-        alt={value.alt || "blog image"}
+        alt={value.alt ?? "blog image"}
         loading="lazy"
         style={{
           display: isInline ? "inline-block" : "block",
