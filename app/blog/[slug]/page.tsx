@@ -36,8 +36,6 @@ const SingleBlogPage = async ({ params }: { params: Params }) => {
               />
             </picture>
           ) : null}
-
-          <p>{post.metadata}</p>
         </div>
 
         <article className="prose lg:prose-xl">
