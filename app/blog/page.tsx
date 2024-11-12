@@ -1,20 +1,20 @@
 import { Spotlight } from "@/components/ui/Spotlight";
-import { getPosts } from "@/sanity/lib/utils";
+import { getPostsByCategory, getAllCategories } from "@/sanity/lib/utils";
 import { PinContainer } from "@/components/Blog/";
 import { urlFor } from "@/sanity/lib/image";
-import Link from "next/link";
+
 import MagicButton from "@/components/ui/MagicButton";
 import { FaArrowLeft } from "react-icons/fa";
-import { Blog } from "@/types/blog";
+import Link from "next/link";
+import { Menu } from "@/components/ui/Menu";
+import { NavItem } from "@/types/blog";
 
 export default async function BlogPage() {
-  const posts: Blog[] = await getPosts();
+  const posts = await getPostsByCategory("clean-code");
+  const categories: NavItem[] = await getAllCategories();
 
   return (
     <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">
-      <Link href={"/"}>
-        <MagicButton title="Back" icon={<FaArrowLeft />} position="left" />
-      </Link>
       <div className="max-v-7xl w-full min-h-screen">
         <div>
           <div>
@@ -31,6 +31,10 @@ export default async function BlogPage() {
               fill="blue"
             />
           </div>
+          <Link href="/">
+            <MagicButton title="Back" icon={<FaArrowLeft />} position="left" />
+          </Link>
+          <Menu navItems={categories} />
 
           <ul className="w-full flex items-center justify-center flex-wrap">
             {posts?.length > 0 ? (

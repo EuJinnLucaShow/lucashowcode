@@ -1,10 +1,9 @@
-import React from "react";
 import { getPostBySlug } from "@/sanity/lib/utils";
 import RenderBodyContent from "@/components/Blog/RenderBodyContent";
-import Link from "next/link";
+import { urlFor } from "@/sanity/lib/image";
 import MagicButton from "@/components/ui/MagicButton";
 import { FaArrowLeft } from "react-icons/fa";
-import { urlFor } from "@/sanity/lib/image";
+import Link from "next/link";
 
 type Params = {
   slug: string;
@@ -15,7 +14,7 @@ const SingleBlogPage = async ({ params }: { params: Params }) => {
 
   return (
     <main className="max-w-[1000px] mx-auto px-10 md:px-24">
-      <Link href={"/blog"}>
+      <Link href="/blog">
         <MagicButton title="Back" icon={<FaArrowLeft />} position="left" />
       </Link>
       <article className="my-10">

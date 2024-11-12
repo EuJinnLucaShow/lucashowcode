@@ -7,7 +7,8 @@ const postData = `{
   tags, 
   mainImage,
   publishedAt,
-  body
+  body,
+  categories[]->{slug, title}
 }`;
 
 export const postQuery = groq`*[_type == "post"] ${postData}`;
@@ -16,4 +17,32 @@ export const postQueryBySlug = groq`*[_type == "post" && slug.current == $slug][
 
 export const postQueryByTag = groq`*[_type == "post" && $slug in tags[]->slug.current] ${postData}`;
 
-export const postQueryByCategory = groq`*[_type == "post" && category->slug.current == $slug] ${postData}`;
+// export const postQueryByCategory = groq`*[_type == "post" && category->slug.current == $category] ${postData}`;
+
+// export const postQueryByCategory = groq`
+//   *[_type == "post" && defined(categories[]->slug.current) && $category in categories[]->slug.current] {
+//     title,
+//     metadata,
+//     slug,
+//     tags,
+//     mainImage,
+//     publishedAt,
+//     body,
+//     categories[]->{slug, title}
+//   }
+// `;
+
+export const postQueryByCategory = groq`
+  *[_type == "post" && $category in categories[]->slug.current] {
+    title,
+    metadata,
+    slug,
+    tags, 
+    mainImage,
+    publishedAt,
+    body,
+    categories[]->{slug, title}
+  }
+`;
+
+export const allCategoriesQuery = groq`*[_type == "category"] { title, slug }`;

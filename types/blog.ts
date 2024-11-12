@@ -19,3 +19,18 @@ export type Blog = {
   tags: string[];
   publishedAt: string;
 };
+
+export type BlogCategory = {
+  title: string;
+  slug: {
+    current: string;
+  };
+};
+
+export type NavItem = {
+  title: string;
+  slug: {
+    current: string;
+    _type: string;
+  };
+};
